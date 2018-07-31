@@ -90,7 +90,41 @@
       this.positionX + (isNaN(this.positionX)? '' : 'px') + ' ' +
       this.positionY + (isNaN(this.positionY)? '' : 'px');
 
-    
+    if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+      this.$mirror = $('<div />').prependTo(this.mirrorContainer);
+
+    var slider = this.$element.find('>.parallax-slider');
+    var sliderExisted = false;
+
+    if (slider.length == 0)
+      this.$slider = $('<img />').prependTo(this.$mirror);
+    else {
+      this.$slider = slider.prependTo(this.$mirror)
+      sliderExisted = true;
+    }
+	else if (navigator.userAgent.match(/(Android)/)) {
+     this.$mirror = $('<div />').prependTo(this.mirrorContainer);
+
+    var slider = this.$element.find('>.parallax-slider');
+    var sliderExisted = false;
+
+    if (slider.length == 0)
+      this.$slider = $('<img />').prependTo(this.$mirror);
+    else {
+      this.$slider = slider.prependTo(this.$mirror)
+      sliderExisted = true;
+    }else{
+	this.$mirror = $('<div />').prependTo(this.mirrorContainer);
+
+    var slider = this.$element.find('>.parallax-slider');
+    var sliderExisted = false;
+
+    if (slider.length == 0)
+      this.$slider = $('<img />').prependTo(this.$mirror);
+    else {
+      this.$slider = slider.prependTo(this.$mirror)
+      sliderExisted = true;
+	}
 
     this.$mirror = $('<div />').prependTo(this.mirrorContainer);
 
